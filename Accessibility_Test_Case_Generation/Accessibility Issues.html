@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>移动应用GUI无障碍问题列表</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9fbfd;
+        }
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        p.intro {
+            font-size: 1.05em;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #ffffff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        th, td {
+            border: 1px solid #e1e8ed;
+            padding: 15px;
+            text-align: left;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+            font-weight: 600;
+        }
+        tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+        tr:hover {
+            background-color: #f1f5f9;
+        }
+        .percentage {
+            font-weight: bold;
+            color: #e74c3c;
+            text-align: center;
+        }
+        .issue-title {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+        .en-title {
+            font-size: 0.85em;
+            color: #7f8c8d;
+            display: block;
+            margin-top: 4px;
+        }
+        .footer-note {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #7f8c8d;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>基于大语言模型的GUI无障碍问题检测与分析列表</h2>
+    <p class="intro">以下是由本方法通过多源GUI表征（视觉层、结构层、辅助功能语义层）[cite: 134] 结合大语言模型推理，能够有效识别并自动生成复现测试用例的核心无障碍问题分类：</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th width="20%">无障碍问题类型</th>
+                <th width="45%">具体表现与成因分析</th>
+                <th width="15%">测试样本占比</th>
+                <th width="20%">典型触发/交互场景</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <span class="issue-title">组件标签缺失</span>
+                    <span class="en-title">(Missing semantic label)</span>
+                </td>
+                <td>界面控件（如按钮、图标）的 <code>ContentDescription</code> 属性为空或缺失，导致 TalkBack 等屏幕阅读器无法准确朗读其语义，视障用户无法获知该组件的实际功能 [cite: 52, 149]。</td>
+                <td class="percentage">32% (16个)<br>[cite: 173]</td>
+                <td>核心主页、个人中心页的文本与图像按钮 [cite: 173]</td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="issue-title">触控目标尺寸不足</span>
+                    <span class="en-title">(Touch target too small)</span>
+                </td>
+                <td>可交互组件的物理尺寸或可点击区域过小，不符合无障碍设计规范，导致视障或运动受限用户在触摸探索时难以精准定位和操作 [cite: 57, 173]。</td>
+                <td class="percentage">24% (12个)<br>[cite: 173]</td>
+                <td>登录/注册页、表单输入、可编辑文本框 [cite: 173]</td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="issue-title">焦点顺序异常</span>
+                    <span class="en-title">(Abnormal focus order)</span>
+                </td>
+                <td>用户使用屏幕阅读器线性滑动浏览时，焦点的跳转顺序不符合界面的视觉组织逻辑或正常的阅读习惯，导致用户对界面结构的理解产生混乱 [cite: 38, 115, 173]。</td>
+                <td class="percentage">22% (11个)<br>[cite: 173]</td>
+                <td>复合列表项浏览、多表单提交流程 [cite: 173]</td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="issue-title">动态控件可达性问题</span>
+                    <span class="en-title">(Dynamic control accessibility)</span>
+                </td>
+                <td>应用中存在的动态内容、动画或需要特定交互（如滚动）才加载的元素，未给屏幕阅读器提供有效的辅助提示，导致用户迷失操作顺序或无法触达深层控件 [cite: 52, 173]。</td>
+                <td class="percentage">22% (11个)<br>[cite: 173]</td>
+                <td>嵌套列表滚动、动态弹窗操作、页面延迟跳转 [cite: 173]</td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="issue-title">不可聚焦控件</span>
+                    <span class="en-title">(Unfocusable controls)</span>
+                </td>
+                <td>具有交互意图的组件（如自定义的开关或按钮）由于属性配置错误，导致其在辅助技术开启时根本无法捕获焦点，彻底阻断了操作路径 [cite: 38, 115]。</td>
+                <td class="percentage">在动态检测中<br>常见 [cite: 115]</td>
+                <td>状态开关、复选框、自定义视图组件 [cite: 115, 173]</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
