@@ -28,7 +28,7 @@ This repository contains the dataset and code for the paper titled "基于大语
 │   └── TestCase_Example/         # 生成的50个可直接运行的 UIAutomator 测试用例
 ├── evaluation/
 │   ├── Experiment(RQ1).py        # RQ1 & RQ4 性能评估与多模型对比脚本
-│   ├── Experiment(RQ2).py           # RQ2 提示工程与小样本学习消融实验脚本
+│   ├── Experiment(RQ2).py        # RQ2 提示工程与小样本学习消融实验脚本
 │   └── Experiment(RQ3).py        # RQ3 闭环修复自适应评估脚本
 ├── Accessibility_Test_Case_Data1-8  # Google Play与F-Droid的开源示例数据
 ├── Annotation_Guidelines.ipynb   # 用户标注规范
