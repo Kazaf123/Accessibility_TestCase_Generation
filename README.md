@@ -22,24 +22,14 @@ This repository contains the dataset and code for the paper titled "基于大语
 
 ```text
 ├── pipeline/
-│   ├── main_pipeline.py          # 核心生成管线代码（包含 Step 1 - Step 4）
-│   └── few_shot_dataset.py       # 50 个真实无障碍测试用例小样本知识库
+│   ├── Ptrompt_Design.py         # 核心生成管线代码（包含 Step 1 - Step 4）
 ├── test_cases/
-│   ├── generate_test_cases.py    # Python 一键生成独立 .java 测试用例的脚本
-│   └── GooglePlayA11yTests/      # 生成的 50 个可直接运行的 UIAutomator 测试用例
+│   ├── Accesibility Issues.html  # 无障碍问题列表
+│   └── TestCase_Example/         # 生成的50个可直接运行的 UIAutomator 测试用例
 ├── evaluation/
-│   ├── rq1_rq4_evaluation.py     # RQ1 & RQ4 性能评估与多模型对比脚本
-│   ├── rq2_ablation.py           # RQ2 提示工程与小样本学习消融实验脚本
-│   └── rq3_repair_eval.py        # RQ3 闭环修复自适应评估脚本
-├── dataset_samples/              # Google Play 与 F-Droid 的部分开源示例数据
+│   ├── Experiment(RQ1).py        # RQ1 & RQ4 性能评估与多模型对比脚本
+│   ├── Experiment(RQ2).py           # RQ2 提示工程与小样本学习消融实验脚本
+│   └── Experiment(RQ3).py        # RQ3 闭环修复自适应评估脚本
+├── Accessibility_Test_Case_Data1-8  # Google Play与F-Droid的开源示例数据
+├── Annotation_Guidelines.ipynb   # 用户标注规范
 └── README.md                     # 本文档
-
-##**引用**
-@article{zhang202x,
-  title={基于大语言模型的安卓移动应用GUI无障碍问题复现测试用例生成方法},
-  author={张梦玺 and 赵军利 and 刘然 and 陈占龙},
-  journal={软件学报 (Journal of Software)},
-  year={202X},
-  issn={1000-9825},
-  doi={10.13328/j.cnki.jos.000000}
-}
